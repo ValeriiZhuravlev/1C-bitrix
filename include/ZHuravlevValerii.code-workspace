@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "bitrix-stubs",
+			"path": "../../../developer/.vscode-server/extensions/sumanai.bitrix-snippet-0.4.2/bitrix-stubs"
+		}
+	],
+	"settings": {}
+}
