@@ -1,3 +1,4 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <footer class="site-footer">
     <div class="container">
@@ -70,20 +71,20 @@
   </footer>
 
   </div>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/jquery-3.3.1.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/jquery-migrate-3.0.1.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/jquery-ui.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/popper.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/bootstrap.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/owl.carousel.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/mediaelement-and-player.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/jquery.stellar.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/jquery.countdown.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/jquery.magnific-popup.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/bootstrap-datepicker.min.js');?>
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/aos.js');?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/jquery-3.3.1.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/jquery-migrate-3.0.1.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/jquery-ui.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/popper.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/bootstrap.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/owl.carousel.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/mediaelement-and-player.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/jquery.stellar.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/jquery.countdown.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/jquery.magnific-popup.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/bootstrap-datepicker.min.js");?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/aos.js");?>
 
-  <?$APPLICATION->AddHeadScript('/local/templates/home/js/main.js');?>
+  <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/js/main.js");?>
 </body>
 
 </html>

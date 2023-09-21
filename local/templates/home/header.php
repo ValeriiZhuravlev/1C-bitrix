@@ -1,9 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
-IncludeTemplateLangFile(__FILE__);
-?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= LANGUAGE_ID ?>">
 
 <head>
   <?$APPLICATION->ShowHead();?>
@@ -15,29 +13,27 @@ IncludeTemplateLangFile(__FILE__);
     href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
     
 
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/fonts/icomoon/style.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/bootstrap.min.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/magnific-popup.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/jquery-ui.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/owl.carousel.min.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/owl.theme.default.min.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/bootstrap-datepicker.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/mediaelementplayer.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/animate.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/fonts/flaticon/font/flaticon.css");?>
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/fl-bigmug-line.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/fonts/icomoon/style.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/bootstrap.min.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/magnific-popup.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/jquery-ui.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/owl.carousel.min.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/owl.theme.default.min.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/bootstrap-datepicker.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/mediaelementplayer.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/animate.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/fonts/flaticon/font/flaticon.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/fl-bigmug-line.css");?>
 
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/aos.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/aos.css");?>
 
-  <?$APPLICATION->SetAdditionalCSS("/local/templates/home/css/style.css");?>
+  <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/style.css");?>
 </head>
 
 <body>
   <?$APPLICATION->ShowPanel();?>
   <div class="site-loader"></div>
-
   <div class="site-wrap">
-
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -132,4 +128,25 @@ IncludeTemplateLangFile(__FILE__);
         </div>
       </div>
     </div>
+
+    <?if($APPLICATION->GetCurPage(false) !== '/'):?> 
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(<?=SITE_TEMPLATE_PATH ?>/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-md-10">
+            <h1 class="mb-2"><?=$APPLICATION->ShowTitle(false)?></h1>
+            <?$APPLICATION->IncludeComponent(
+	            "bitrix:breadcrumb",
+	            "breadcrumbs",
+	            Array(
+	            	"PATH" => "",
+	            	"SITE_ID" => "s1",
+	            	"START_FROM" => "0"
+	            )
+            );?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?endif;?> 
   </div>
