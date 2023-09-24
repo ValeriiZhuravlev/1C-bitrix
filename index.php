@@ -112,45 +112,63 @@ $APPLICATION->SetTitle("Мебельная компания");
 </div>
 <div class="site-section site-section-sm bg-light">
 	 <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line",
-	"properties",
-	Array(
+	"bitrix:news.line", 
+	"properties", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "300",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "properties",
-		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(0=>"PREVIEW_PICTURE",1=>"DETAIL_PICTURE",2=>"PROPERTY_GARAGE",3=>"DETAIL_TEXT",4=>"PROPERTY_TOTAL_AREA",5=>"PROPERTY_NUMB_FLOORS",6=>"PROPERTY_NUMB_BATHROOMS",7=>"PROPERTY_PRICE"),
-		"IBLOCKS" => array(),
+		"DETAIL_URL" => "ads/#CODE#/",
+		"FIELD_CODE" => array(
+			0 => "PREVIEW_PICTURE",
+			1 => "DETAIL_TEXT",
+			2 => "DETAIL_PICTURE",
+			3 => "PROPERTY_GARAGE",
+			4 => "PROPERTY_TOTAL_AREA",
+			5 => "PROPERTY_NUMB_FLOORS",
+			6 => "PROPERTY_NUMB_BATHROOMS",
+			7 => "PROPERTY_PRICE",
+			8 => "",
+		),
+		"IBLOCKS" => array(
+		),
 		"IBLOCK_TYPE" => "ads",
 		"NEWS_COUNT" => "9",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	)
+	),
+	false
 );?>
 	<div class="site-section">
 		 <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line",
-	"services",
-	Array(
+	"bitrix:news.line", 
+	"services", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "300",
 		"CACHE_TYPE" => "A",
-		"COMPONENT_TEMPLATE" => ".default",
-		"DETAIL_URL" => "#CODE#",
-		"FIELD_CODE" => array(0=>"",1=>"",),
-		"IBLOCKS" => "",
+		"COMPONENT_TEMPLATE" => "services",
+		"DETAIL_URL" => "services/#CODE#/",
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "6",
+		),
 		"IBLOCK_TYPE" => "services",
 		"NEWS_COUNT" => "6",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	)
+	),
+	false
 );?>
 	</div>
 	<div class="site-section bg-light">

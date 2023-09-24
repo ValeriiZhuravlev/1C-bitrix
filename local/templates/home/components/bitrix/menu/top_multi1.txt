@@ -1,0 +1,233 @@
+Array
+(
+    [0] => Array
+        (
+            [TEXT] => Главная страница
+            [LINK] => /index.php
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => P
+            [ITEM_INDEX] => 0
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => Главная страница
+                )
+
+            [DEPTH_LEVEL] => 1
+            [IS_PARENT] => 
+        )
+
+    [1] => Array
+        (
+            [TEXT] => О сервисе
+            [LINK] => /servise/
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => D
+            [ITEM_INDEX] => 1
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => О сервисе
+                )
+
+            [DEPTH_LEVEL] => 1
+            [IS_PARENT] => 1
+        )
+
+    [2] => Array
+        (
+            [TEXT] => Вакансии
+            [LINK] => /servise/job/
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => D
+            [ITEM_INDEX] => 0
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => О сервисе
+                    [1] => Вакансии
+                )
+
+            [DEPTH_LEVEL] => 2
+            [IS_PARENT] => 
+        )
+
+    [3] => Array
+        (
+            [TEXT] => Контакты
+            [LINK] => /servise/contacts/
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => D
+            [ITEM_INDEX] => 1
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => О сервисе
+                    [1] => Контакты
+                )
+
+            [DEPTH_LEVEL] => 2
+            [IS_PARENT] => 
+        )
+
+    [4] => Array
+        (
+            [TEXT] => Новости
+            [LINK] => /servise/news/
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => D
+            [ITEM_INDEX] => 2
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => О сервисе
+                    [1] => Новости
+                )
+
+            [DEPTH_LEVEL] => 2
+            [IS_PARENT] => 
+        )
+
+    [5] => Array
+        (
+            [TEXT] => Агенты
+            [LINK] => /servise/agents.php
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => P
+            [ITEM_INDEX] => 3
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => О сервисе
+                    [1] => Агенты
+                )
+
+            [DEPTH_LEVEL] => 2
+            [IS_PARENT] => 
+        )
+
+    [6] => Array
+        (
+            [TEXT] => Объявления
+            [LINK] => /ads/
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => D
+            [ITEM_INDEX] => 2
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => Объявления
+                )
+
+            [DEPTH_LEVEL] => 1
+            [IS_PARENT] => 
+        )
+
+    [7] => Array
+        (
+            [TEXT] => Личный кабинет продавца
+            [LINK] => /lichnyy-kabinet-prodavtsa/
+            [SELECTED] => 1
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => D
+            [ITEM_INDEX] => 3
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => Личный кабинет продавца
+                )
+
+            [DEPTH_LEVEL] => 1
+            [IS_PARENT] => 1
+        )
+
+    [8] => Array
+        (
+            [TEXT] => Мои объявления
+            [LINK] => /lichnyy-kabinet-prodavtsa/my-ads/
+            [SELECTED] => 
+            [PERMISSION] => X
+            [ADDITIONAL_LINKS] => Array
+                (
+                )
+
+            [ITEM_TYPE] => D
+            [ITEM_INDEX] => 0
+            [PARAMS] => Array
+                (
+                )
+
+            [CHAIN] => Array
+                (
+                    [0] => Личный кабинет продавца
+                    [1] => Мои объявления
+                )
+
+            [DEPTH_LEVEL] => 2
+            [IS_PARENT] => 
+        )
+
+)
