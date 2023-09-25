@@ -69,6 +69,11 @@
 	              )
               );?>
             </p>
+            <p>
+              <? if (!($USER->IsAuthorized())): ?>
+              <a href="/auth/">Вход</a>
+                <? endif; ?>
+            </p>
           </div>
           <div class="col-6 col-md-6 text-right">
               <?$APPLICATION->IncludeComponent(
