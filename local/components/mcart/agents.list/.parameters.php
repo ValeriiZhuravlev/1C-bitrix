@@ -14,19 +14,19 @@ $arComponentParameters = array(
     "PARAMETERS" => array(
         "HLBLOCK_TNAME" => array(
             "PARENT" => "BASE",
-            "NAME" => "Название таблицы Highload-блока",
+            "NAME" => GetMessage("HLBLOCK_TNAME"),
             "TYPE" => "STRING",
             "DEFAULT" => "",
         ),
         "ELEMENTS_COUNT" => array(
             "PARENT" => "BASE",
-            "NAME" => "Количество элементов для постраничной пагинации",
+            "NAME" => GetMessage("HLBLOCK_COUNT_PAGE"),
             "TYPE" => "STRING",
             "DEFAULT" => "20",
         ),
         "CACHE_TIME" => array(
             "PARENT" => "CACHE_SETTINGS",
-            "NAME" => "Время кеширования (в секундах)",
+            "NAME" => GetMessage("HLBLOCK_TIME_CASH"),
             "TYPE" => "STRING",
             "DEFAULT" => "3600",
         ),

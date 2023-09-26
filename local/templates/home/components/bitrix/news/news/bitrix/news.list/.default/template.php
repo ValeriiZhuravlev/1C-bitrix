@@ -12,6 +12,8 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+
+
 <div class="site-section site-section-sm bg-light">
 	<div class="container">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>

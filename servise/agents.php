@@ -1,11 +1,14 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Агенты");
-?><div>
+?>
+
+<div>
 	 <?$APPLICATION->IncludeComponent(
 	"mcart:agents.list",
 	"",
 	Array(
+		"AJAX_MODE" => "Y",
 		"CACHE_TIME" => "3600",
 		"CACHE_TYPE" => "A",
 		"DISPLAY_BOTTOM_PAGER" => "Y",

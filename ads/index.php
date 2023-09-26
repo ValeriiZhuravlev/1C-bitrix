@@ -2,6 +2,9 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Объявления");
 ?><? if ($APPLICATION->GetCurPage(false) == "/ads/"): ?>
+<?echo '<pre>';
+print_r($arResult); // для разработки в конечном коде убрать
+echo '</pre>';?>
 <div class="pt-5">
 	<div class="container">
 		<form class="row">

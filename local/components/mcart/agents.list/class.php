@@ -124,6 +124,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
 
     final public function executeComponent(): void
     {
+        \CJSCore::Init(); 
         if (empty($this->arParams["HLBLOCK_TNAME"])) {
             /**
              * Если параметр Название таблицы (TABLE_NAME) Highload-блока не задан,
@@ -176,6 +177,10 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
          */ 
 
          $this->arResult['STAR_AGENTS'] = CUserOptions::GetOption('mcart_agent', 'options_agents_star');
+
+         if (isset($this->arResult['STAR_AGENTS'])) {
+            $this->arResult['STAR_AGENTS'] = [];
+         }
         /*
          * Данного метода нет в документации, код метода и его параметры можно найти в ядре (/bitrix/modules/main/) или в гугле
          * $category - это категория настройки, можете придумать любую, например mcart_agent
@@ -365,6 +370,34 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
         $result = []; // ответ, который уйдет на фронт
 
         $value = []; // массив ID элементов, которые пользователь добавил в избраное
+
+        global $USER;
+        $userID = $USER->GetID();
+        $arUserOptions = CUserOptions::GetOption("mcart_agent", "options_agents_star", [], $userID);
+
+        if (!empty($arUserOptions)) {
+            if (!is_array($arUserOptions)) {
+                $arUserOptions = [$arUserOptions];
+            }   
+
+        $key = array_search($agentID, $arUserOptions);
+
+            if ($key !== false) {
+                unset($arUserOptions[$key]);
+            } else {
+                $arUserOptions[] = $agentID;
+            }
+
+            $value = $arUserOptions;
+        } else {
+            $value = [$agentID];
+        }
+
+        CUserOptions::SetOption("mcart_agent", "options_agents_star", $value, false, $userID);
+
+        $result['action'] = 'success';
+        
+
         /*
          * 1. Получить значения свойства из настроек пользователя (CUserOptions) для текущего пользователя
          * https://dev.1c-bitrix.ru/community/webdev/user/259944/blog/17105/

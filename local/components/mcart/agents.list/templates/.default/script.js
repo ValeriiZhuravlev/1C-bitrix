@@ -4,8 +4,14 @@ BX.ready(function() {
     2. Повесить обработчик события на click
     Пример: BX.bind(element, "click", clickStar);
      */
+
+    const elem = document.querySelectorAll('.star');
+    elem.forEach(elem => {
+        BX.bind(elem, "click", clickStar);
+    });
 });
 function clickStar(event) {
+    console.log('test');
     event.preventDefault();
 
     /*
@@ -13,6 +19,8 @@ function clickStar(event) {
     cо значением ID элемента Агента
     (https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
      */
+
+    const agentID = this.getAttribute('data-id');
 
     if (agentID) { // если ID есть, то делаем ajax-запрос
         BX.ajax // https://dev.1c-bitrix.ru/api_help/js_lib/ajax/bx_ajax_runcomponentaction.php
@@ -32,6 +40,7 @@ function clickStar(event) {
                     let data = response.data;
                     if (data['action'] == 'success') {
                         // Отобразить пользоватиелю, что агент добавлен в избраное (желтая звездочка, есть в верстке)
+                        this.classList.toggle('active');
                     }
 
                 }, this)
