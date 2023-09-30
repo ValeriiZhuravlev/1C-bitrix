@@ -17,6 +17,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 $this->setFrameMode(true);
 ?>
 
+<?echo '<pre>';
+print_r($arResult); // для разработки в конечном коде убрать
+echo '</pre>';?>
 
 
 <div class="site-section site-section-sm bg-light">
@@ -49,11 +52,11 @@ $this->setFrameMode(true);
                         </div>
                         <div class="card__info_item">
                             <div class="position"><?=GetMessage("TYPE")?>:</div>
-                            <div class="name"><?=$arItem["UF_ACTIVITY_TYPE"]?></div>
+                            <div class="name"><?=$arItem["UF_ACTIVITY_TYPE_VALUE"]?></div>
                             </div>
                     </div>
                 </div>
-                <a class="star<? in_array($arItem['ID'], $arResult['STAR_AGENTS']) ? ' active' : "" ?>" data-id="<?=$arItem['ID'] ?>" >
+                <a class="star<?= in_array($arItem['ID'], $arResult['STAR_AGENTS']) ? ' active' : "" ?>" data-id="<?=$arItem['ID'] ?>" >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 4L14.472 9.26604L20 10.1157L16 14.2124L16.944 20L12 17.266L7.056 20L8 14.2124L4 10.1157L9.528 9.26604L12 4Z" stroke="#95929A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>

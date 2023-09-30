@@ -124,7 +124,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
 
     final public function executeComponent(): void
     {
-        \CJSCore::Init(); 
+        
         if (empty($this->arParams["HLBLOCK_TNAME"])) {
             /**
              * Если параметр Название таблицы (TABLE_NAME) Highload-блока не задан,
@@ -158,7 +158,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
             $this->taggedCache->registerTag('hlblock_table_name_' . $arHlblock['TABLE_NAME']); // Регистрируем кещ, чтобы по нему на событиях добавление/изменение/удаление элементов хлблока сбрасывать кеш компонента
 
             $entity = self::getEntityDataClassById($arHlblock); // получить класс для работы с хлблоком
-            $arTypeAgents = self::getFieldListValue($arHlblock, 'UF_TYPE'); // получить массив со значениями списочного свойства Виды деятельности агентов
+            $arTypeAgents = self::getFieldListValue($arHlblock, 'UF_ACTIVITY_TYPE'); // получить массив со значениями списочного свойства Виды деятельности агентов
             $this->arResult['AGENTS'] = $this->getAgents($entity, $arTypeAgents); // получить массив со списком агентов и объектом для пагинации
 
 
@@ -178,7 +178,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
 
          $this->arResult['STAR_AGENTS'] = CUserOptions::GetOption('mcart_agent', 'options_agents_star');
 
-         if (isset($this->arResult['STAR_AGENTS'])) {
+         if (!isset($this->arResult['STAR_AGENTS'])) {
             $this->arResult['STAR_AGENTS'] = [];
          }
         /*
@@ -254,7 +254,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
     private function getFieldListValue(array $arHlblock, string $fieldName): array
     {
         $result = [];
-
+        
         //Получаем ID пользовательского поля, по его коду
         $fieldID = Bitrix\Main\UserFieldTable::getList([
             'filter' => [
@@ -262,19 +262,20 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
                 "FIELD_NAME" => $fieldName,
             ],
         ])->Fetch()["ID"];
+        
 
         if ($fieldID) {
             /*
              *  Получить список свойств для $fieldID используя класс CUserFieldEnum
              */
-            $fieldEnum = new CUserFieldEnum;
-            $fieldEnumResult = $fieldEnum->GetList([], [
-                "USER_FIELD_ID" => $fieldID
-            ]);
-            
-            $result = $fieldEnumResult->$arResult;
+            $fieldEnum = CUserFieldEnum::GetList(
+                [], ['USER_FIELD_ID' => $fieldID ],
+            )->arResult;
+            foreach ($fieldEnum as $item) {
+                $result[$item['ID']] = $item['VALUE'];
+            }
         }
-
+        
         return $result;
     }
 
@@ -339,14 +340,13 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
         return $arAgents; // Возвращаем результат
     }
 
-
-
     // Далее код для ajax, к нему можно вернуться после внедрения верски и js
     /**
      * Конфигурация событий для ajax
      */
-    final public function configureActions(): array
+    final public function configureActions(): array 
     {
+        \CJSCore::Init(); 
         return [
             'clickStar' => [
                 'prefilters' => [
@@ -373,8 +373,10 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
 
         global $USER;
         $userID = $USER->GetID();
-        $arUserOptions = CUserOptions::GetOption("mcart_agent", "options_agents_star", [], $userID);
+        $arUserOptions = CUserOptions::GetOption("mcart_agent", "options_agents_star", $userID);
 
+        $result['value'] = $arUserOptions;
+        $result['user'] = $userID;
         if (!empty($arUserOptions)) {
             if (!is_array($arUserOptions)) {
                 $arUserOptions = [$arUserOptions];
@@ -394,6 +396,7 @@ class AgentsList extends CBitrixComponent implements Controllerable, Errorable
         }
 
         CUserOptions::SetOption("mcart_agent", "options_agents_star", $value, false, $userID);
+
 
         $result['action'] = 'success';
         

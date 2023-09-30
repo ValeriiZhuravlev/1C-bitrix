@@ -3,6 +3,10 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Агенты");
 ?>
 
+<? echo '<pre>';
+ print_r($arResult);
+ echo '</pre>'?>
+
 <div>
 	 <?$APPLICATION->IncludeComponent(
 	"mcart:agents.list",

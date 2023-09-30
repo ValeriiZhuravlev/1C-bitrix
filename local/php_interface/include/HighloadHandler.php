@@ -10,6 +10,7 @@ class HighloadHandler
 {
     public static function clearCacheByTableName(\Bitrix\Main\Entity\Event &$event)
     {
+
         $entity = $event->getEntity();
         $tableName = $entity->getDBTableName(); // Получаем имя таблицы highload-блока
 
