@@ -19,7 +19,7 @@ $APPLICATION->SetTitle("Новости");
 	"SORT_ORDER2" => "ASC",
 	"CHECK_DATES" => "Y",
 	"SEF_MODE" => "Y",
-	"SEF_FOLDER" => "/s2news/",
+	"SEF_FOLDER" => "/s2/news/",
 	"AJAX_MODE" => "N",
 	"AJAX_OPTION_SHADOW" => "N",
 	"AJAX_OPTION_JUMP" => "Y",

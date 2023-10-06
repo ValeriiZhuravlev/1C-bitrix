@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Услуги");
 	"PRODUCT_ID_VARIABLE" => "id",
 	"SECTION_ID_VARIABLE" => "SECTION_ID",
 	"SEF_MODE" => "Y",
-	"SEF_FOLDER" => "/s2services/",
+	"SEF_FOLDER" => "/s2/services/",
 	"AJAX_MODE" => "N",
 	"AJAX_OPTION_SHADOW" => "Y",
 	"AJAX_OPTION_JUMP" => "N",

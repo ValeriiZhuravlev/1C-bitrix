@@ -1,4 +1,7 @@
 <?
+$PERM["s2"]["2"]="X";
+$PERM["s2"]["3"]="X";
+$PERM["s2"]["4"]="X";
 $PERM["ads"]["8"]="X";
 $PERM["bitrix"]["8"]="D";
 $PERM["lichnyy-kabinet-pokupatelya"]["*"]="D";

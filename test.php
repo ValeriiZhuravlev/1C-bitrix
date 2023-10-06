@@ -1,14 +1,17 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("test");
-?><?$APPLICATION->IncludeComponent(
-	"mcart:mcart.iblockelement.like",
-	"",
-	Array(
-		"CACHE_TIME" => "86400",
-		"CACHE_TYPE" => "A",
-		"ELEMENT_ID" => "4",
-		"IBLOCK_ID" => "4",
-		"IBLOCK_TYPE" => "vacancies"
-	)
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+
+
+
+
+<?
+echo '<pre>'.htmlspecialchars(print_r($arResult, true)).'</pre>';
+
+file_put_contents(_DIR_.'/1.txt', print_r($arResult, true), FILE_APPEND);
+
+global $APPLICATION;
+
+global $USER;
+?>
