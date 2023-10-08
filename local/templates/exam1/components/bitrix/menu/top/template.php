@@ -5,8 +5,6 @@ $this->setFrameMode(true);
 
 if (empty($arResult["ALL_ITEMS"]))
 	return;
-
-	file_put_contents(__DIR__.'/1.txt', print_r($arResult, true), FILE_APPEND);
 ?>
 		<div class="menu popup-block">
 		<ul>
@@ -22,6 +20,10 @@ if (empty($arResult["ALL_ITEMS"]))
 			<?if (is_array($arColumns) && !empty($arColumns)):?>
 					<?foreach($arColumns as $key=>$arRow):?>
 						<ul>
+							<?
+							$menu_top_text = trim($APPLICATION->GetDirProperty('menu_top_text', $arResult["ALL_ITEMS"][$itemID]["LINK"]));
+							if($menu_top_text) echo '<div class="menu-text">'.$menu_top_text.'</div>';
+							?>
 						<?foreach($arRow as $itemIdLevel_2=>$arLevel_3):?>  <!-- second level-->
 							<?if($arResult["ALL_ITEMS"][$itemIdLevel_2]["PERMISSION"] == 'D') continue;?>
 							<li>
@@ -30,6 +32,10 @@ if (empty($arResult["ALL_ITEMS"]))
 								</a>
 							<?if (is_array($arLevel_3) && !empty($arLevel_3)):?>
 								<ul>
+								<?
+									$menu_top_text = trim($APPLICATION->GetDirProperty('menu_top_text', $arResult["ALL_ITEMS"][$itemIdLevel_2]["LINK"]));
+									if($menu_top_text) echo '<div class="menu-text">'.$menu_top_text.'</div>';
+								?>
 								<?foreach($arLevel_3 as $itemIdLevel_3):?>	<!-- third level-->
 									<li>
 										<a href="<?=$arResult["ALL_ITEMS"][$itemIdLevel_3]["LINK"]?>">
