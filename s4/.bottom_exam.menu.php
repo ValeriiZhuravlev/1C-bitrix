@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Отзывы", 
-		SITE_DIR."#", 
+		SITE_DIR."/rew/", 
 		Array(), 
 		Array(), 
 		"" 

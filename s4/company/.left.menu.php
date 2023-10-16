@@ -37,7 +37,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Обратная связь", 
-		SITE_DIR."/company/obratnaya-svyaz/", 
+		SITE_DIR."/company/obratnaya-svyaz.php", 
 		Array(), 
 		Array(), 
 		"" 

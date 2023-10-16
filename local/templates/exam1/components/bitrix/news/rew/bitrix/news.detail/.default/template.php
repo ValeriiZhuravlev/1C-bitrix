@@ -1,23 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
-$month = array(
-	1 => 'января',
-	2 => 'февраля',
-	3 => 'марта',
-	4 => 'апреля',
-	5 => 'мая',
-	6 => 'июня',
-	7 => 'июля',
-	8 => 'августа',
-	9 => 'сентября',
-	10 => 'октября',
-	11 => 'ноября',
-	12 => 'декабря'
-);
-$arDate = getdate(strtotime($arResult['ACTIVE_FROM']));
-$str = $arResult['NAME'] . ' ' . $arDate['mday'] . ' ' . $month[$arDate['mon']] . ' ' . $arDate['year'] . 'г.';
-if($arResult['PROPERTIES']['POSITION']['VALUE']) $str .= ', ' . $arResult['PROPERTIES']['POSITION']['VALUE'];
-if($arResult['PROPERTIES']['COMPANY']['VALUE']) $str .= ', ' . $arResult['PROPERTIES']['COMPANY']['VALUE'];
+
+
+$str = $arResult['DISPLAY_ACTIVE_FROM'] . 'г.';
+if($arResult['DISPLAY_PROPERTIES']['POSITION']['VALUE']) $str .= ', ' . $arResult['DISPLAY_PROPERTIES']['POSITION']['VALUE'];
+if($arResult['DISPLAY_PROPERTIES']['COMPANY']['VALUE']) $str .= ', ' . $arResult['DISPLAY_PROPERTIES']['COMPANY']['VALUE'];
 
 if(isset($arResult['DETAIL_PICTURE']['SRC'])) {
 	$src = $arResult['DETAIL_PICTURE']['SRC'];
@@ -37,20 +24,26 @@ if(isset($arResult['DETAIL_PICTURE']['SRC'])) {
 	</div>
 	<div style="clear: both;" class="review-img-wrap"><img src="<?=$src ?>" alt="img"></div>
 </div>
-<? if(is_array($arResult['PROPERTIES']['DOCUMENTS']['VALUE'])): ?>
+<? if(is_array($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['VALUE'])): ?>
 <div class="exam-review-doc">
 		<p><?=GetMessage('DOC')?>:</p>
-		<? foreach($arResult['PROPERTIES']['DOCUMENTS']['VALUE'] as $fid):
-			$rsFile = CFile::GetByID($fid);
-			$arFile = $rsFile->Fetch();
-		?>
+		<?if($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE'][1]):?>
+		<?foreach($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE'] as $fid):?>
 		<div  class="exam-review-item-doc">
 			<img class="rew-doc-ico" src="<?=SITE_TEMPLATE_PATH?>/img/icons/pdf_ico_40.png">
-				<a href="/upload/<?=$arFile['SUBDIR'].'/'.$arFile['FILE_NAME']?>" download>
-					<?=$arFile['ORIGINAL_NAME']?>
-				</a>
-			</div>
-		<? endforeach; ?>
+			<a href="/upload/<?=$fid['SUBDIR'].'/'.$fid['FILE_NAME']?>" download>
+				<?=$fid['ORIGINAL_NAME']?>
+			</a>
+		</div>
+		<?endforeach;?>
+		<?else:?>
+		<div  class="exam-review-item-doc">
+			<img class="rew-doc-ico" src="<?=SITE_TEMPLATE_PATH?>/img/icons/pdf_ico_40.png">
+			<a href="/upload/<?=$arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']['SUBDIR'].'/'.$arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']['FILE_NAME']?>" download>
+				<?=$arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['FILE_VALUE']['ORIGINAL_NAME']?>
+			</a>
+		</div>
+		<?endif?>
 </div>
 <? endif; ?>
 <hr>

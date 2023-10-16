@@ -1,23 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
-$month = array(
-	1 => 'января',
-	2 => 'февраля',
-	3 => 'марта',
-	4 => 'апреля',
-	5 => 'мая',
-	6 => 'июня',
-	7 => 'июля',
-	8 => 'августа',
-	9 => 'сентября',
-	10 => 'октября',
-	11 => 'ноября',
-	12 => 'декабря'
-);
-$arDate = getdate(strtotime($arResult['ACTIVE_FROM']));
-$str = $arResult['NAME'] . ' ' . $arDate['mday'] . ' ' . $month[$arDate['mon']] . ' ' . $arDate['year'] . 'г.';
-if($arResult['PROPERTIES']['POSITION']['VALUE']) $str .= ', ' . $arResult['PROPERTIES']['POSITION']['VALUE'];
-if($arResult['PROPERTIES']['COMPANY']['VALUE']) $str .= ', ' . $arResult['PROPERTIES']['COMPANY']['VALUE'];
+
+
+$str = $arResult['DISPLAY_ACTIVE_FROM'] . 'г.';
+if($arResult['DISPLAY_PROPERTIES']['POSITION']['VALUE']) $str .= ', ' . $arResult['DISPLAY_PROPERTIES']['POSITION']['VALUE'];
+if($arResult['DISPLAY_PROPERTIES']['COMPANY']['VALUE']) $str .= ', ' . $arResult['DISPLAY_PROPERTIES']['COMPANY']['VALUE'];
 
 if(isset($arResult['DETAIL_PICTURE']['SRC'])) {
 	$src = $arResult['DETAIL_PICTURE']['SRC'];
@@ -37,10 +24,10 @@ if(isset($arResult['DETAIL_PICTURE']['SRC'])) {
 	</div>
 	<div style="clear: both;" class="review-img-wrap"><img src="<?=$src ?>" alt="img"></div>
 </div>
-<? if(is_array($arResult['PROPERTIES']['DOCUMENTS']['VALUE'])): ?>
+<? if(is_array($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['VALUE'])): ?>
 <div class="exam-review-doc">
 		<p><?=GetMessage('DOC')?>:</p>
-		<? foreach($arResult['PROPERTIES']['DOCUMENTS']['VALUE'] as $fid):
+		<? foreach($arResult['DISPLAY_PROPERTIES']['DOCUMENTS']['VALUE'] as $fid):
 			$rsFile = CFile::GetByID($fid);
 			$arFile = $rsFile->Fetch();
 		?>
@@ -55,4 +42,5 @@ if(isset($arResult['DETAIL_PICTURE']['SRC'])) {
 <? endif; ?>
 <hr>
 <a href="<?=$arResult["LIST_PAGE_URL"]?>" class="review-block_back_link"> &larr; К списку отзывов</a>
+
 

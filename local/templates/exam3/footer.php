@@ -4,33 +4,31 @@
                 <!-- side -->
                 <div class="side">
                 <?$APPLICATION->IncludeComponent(
-                    "bitrix:menu", 
-                    "left", 
-                    array(
-                        "ALLOW_MULTI_SELECT" => "N",
-                        "CHILD_MENU_TYPE" => "left",
-                        "DELAY" => "N",
-                        "MAX_LEVEL" => "1",
-                        "MENU_CACHE_GET_VARS" => array(
-                        ),
-                        "MENU_CACHE_TIME" => "3600",
-                        "MENU_CACHE_TYPE" => "N",
-                        "MENU_CACHE_USE_GROUPS" => "Y",
-                        "ROOT_MENU_TYPE" => "left",
-                        "USE_EXT" => "Y",
-                        "COMPONENT_TEMPLATE" => "left"
-                    ),
-                    false
-                );?>
+	"bitrix:menu", 
+	"left", 
+	array(
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "1",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "left",
+		"USE_EXT" => "Y",
+		"COMPONENT_TEMPLATE" => "left"
+	),
+	false
+);?>
                     <!-- side anonse -->
-                    <?$APPLICATION->IncludeComponent("bitrix:main.include", "include_exam", Array(
-                            "AREA_FILE_SHOW" => "Y",	// Показывать включаемую область
-                            "AREA_FILE_SUFFIX" => "sect",
-                            "EDIT_TEMPLATE" => "",	// Шаблон области по умолчанию
-                            "PATH" => "",	// Путь к файлу области
-                        ),
-                        false
-                    );?>
+                    <div class="side-block side-anonse">
+                        <div class="title-block"><span class="i i-title01"></span>Полезная информация!</div>
+                        <div class="item">
+                            <p>Клиенты предпочитают все больше эко-материалов.</p>
+                        </div>
+                    </div>
                     <!-- /side anonse -->
                     <!-- side wrap -->
                     <div class="side-wrap">
@@ -83,7 +81,7 @@
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "7",
+		"IBLOCK_ID" => "12",
 		"IBLOCK_TYPE" => "rew",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -187,6 +185,7 @@
                 <div class="title-block"><?=GetMessage('CONTACT_INFO')?></div>
                 <div class="loc-block">
                     <div class="address">ул. Летняя, стр.12, офис 512</div>
+                    <div class="phone"><a href="tel:84952128506">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         "",
@@ -197,7 +196,8 @@
                             "PATH" => "/include/footer_phone.php"
                         )
                     );?>
-
+                    </a>
+                    </div>
                 </div>
                 <div class="main-soc-block">
                     <a href="" class="soc-item">
